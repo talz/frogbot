@@ -111,6 +111,7 @@ func (sc *ScanDetails) Audit(workDirs ...string) (auditResults *results.Security
 		SetMultiScanId(sc.MultiScanId).
 		SetThreads(MaxConcurrentScanners).
 		SetStartTime(sc.StartTime).
+		SetCustomBomGenBinaryPath("/usr/local/bin/xray-scan-plugin").
 		SetViolationGenerator(enforcer.NewPolicyEnforcerViolationGenerator())
 
 	return audit.RunAudit(auditParams)
